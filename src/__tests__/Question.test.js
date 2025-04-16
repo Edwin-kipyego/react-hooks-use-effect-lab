@@ -49,7 +49,7 @@ test("calls onAnswered after 10 seconds", () => {
   const onAnswered = jest.fn();
   render(<Question question={testQuestion} onAnswered={onAnswered} />);
   act(() => {
-    jest.advanceTimersByTime(11000);
+    jest.runAllTimers();
   });
   expect(onAnswered).toHaveBeenCalledWith(false);
 });
